@@ -1,0 +1,39 @@
+{
+  "name": "botkinhte-cherry",
+  "version": "2.0.0",
+  "main": "src/Main.js",
+  "scripts": {
+    "watch": "src/Main.js",
+    "dev": "Cherry",
+    "run": "npm install"
+  },
+  "repository": "https://github.com/Meoluoicute2000",
+  "author": "Cherry",
+  "license": "MIT",
+  "dependencies": {
+    "@iamtraction/google-translate": "^1.1.2",
+    "anilist-node": "^1.11.2",
+    "axios": "^0.26.1",
+    "bad-words": "^3.0.4",
+    "canvas": "^2.9.1",
+    "consola": "^2.15.3",
+    "discord-button": "^1.0.3",
+    "discord.js": "^13.6.0",
+    "dotenv": "^11.0.0",
+    "express": "^4.18.2",
+    "figlet": "^1.7.0",
+    "glob": "^7.2.0",
+    "hmfull": "^2.4.3",
+    "html-entities": "^2.3.3",
+    "mathjs": "^10.0.2",
+    "moment": "^2.29.3",
+    "mongoose": "^6.1.6",
+    "ms": "^2.1.3",
+    "node-fetch": "2.5.0",
+    "node-superfetch": "^0.2.3",
+    "path": "^0.12.7",
+    "twemoji-parser": "^14.0.0",
+    "weather-js": "^2.0.0",
+    "wikijs": "^6.3.3"
+  }
+}
