@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
   const imagePath = path.join(__dirname, 'index.html');
   res.sendFile(imagePath);
 });
-app.listen(port, () => console.log(`|  🔗 Cherry đang mở cổng: ${port}`));
+app.listen(port, () => console.log(`|  🔗 Cherry đang mở cổng : ${port}`));
 
 bot.start();
 
