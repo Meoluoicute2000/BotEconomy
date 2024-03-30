@@ -10,12 +10,12 @@ const bot = new Bot(config);
 
 //Hosting Web
 const app = express();
-const port = 6000;
+const port = 3000;
 app.get('/', (req, res) => {
   const imagePath = path.join(__dirname, 'index.html');
   res.sendFile(imagePath);
 });
-app.listen(port, () => console.log(`|  🔗 Cherry đang mở cổng : ${port}`));
+app.listen(port, () => console.log(`|  🔗 Cherry đang mở cổng: ${port}`));
 
 bot.start();
 
