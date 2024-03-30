@@ -4,7 +4,7 @@ module.exports = {
   event: 'ready',
   async run(bot) {
     console.log(`|  🌼 Đăng nhập với tư cách ${bot.user.tag}`);
-    console.log(`|  🧩 Slash Commands - Tải thành công ${bot.commands.size} lệnh và ở trong ${bot.guilds.cache.size} server khác nhau. ${plural(bot.guilds.cache.size)}`);
+    console.log(`|  🧩 Slash Commands - Tải thành công ${bot.commands.size} lệnh và ở trong ${bot.guilds.cache.size} server khác nhau.`);
 
     try {
       bot.user.setPresence({
