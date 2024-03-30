@@ -6,7 +6,7 @@ const chanleCooldowns = new Map();
 
 module.exports = {
   name: 'chanle',
-  description: 'Chơi trò chơi Chẵn Lẻ với 4 đồng xu 2 mặt. Hạn chế sử dụng mỗi 30 giây - Rút gọn.',
+  description: 'Chơi trò chơi Chẵn Lẻ với 4 đồng xu 2 mặt. Hạn chế sử dụng mỗi 30 giây.',
   category: 'Kinh tế',
   options: [
     {
@@ -59,12 +59,12 @@ module.exports = {
     const cooldownDuration = 30 * 1000;
     chanleCooldowns.set(interaction.user.id, Date.now() + cooldownDuration);
 
-    const coin1 = flipCoin();
-    const coin2 = flipCoin();
-    const coin3 = flipCoin();
-    const coin4 = flipCoin();
+    const coin1 = coinFlip();
+    const coin2 = coinFlip();
+    const coin3 = coinFlip();
+    const coin4 = coinFlip();
 
-    const totalHeads = [coin1, coin2, coin3, coin4].filter(side => side === 'Heads').length;
+    const totalHeads = [coin1, coin2, coin3, coin4].filter(side => side === 'Ngửa').length;
 
     let evenOrOdd;
     if (totalHeads % 2 === 0) {
@@ -108,8 +108,8 @@ module.exports = {
   },
 };
 
-function flipCoin() {
-  return Math.random() < 0.5 ? 'Heads' : 'Tails';
+function coinFlip() {
+  return Math.random() < 0.5 ? 'Sấp' : 'Ngửa';
 }
 
 async function updateWallet(userID, guildID, amount) {

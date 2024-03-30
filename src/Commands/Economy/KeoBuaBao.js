@@ -6,7 +6,7 @@ const keobuabaoCooldowns = new Map();
 
 module.exports = {
   name: 'keobuabao',
-  description: 'Chơi trò chơi kéo búa bao. Hạn chế sử dụng mỗi 5 giây - Rút gọn.',
+  description: 'Chơi trò chơi kéo búa bao. Hạn chế sử dụng mỗi 5 giây.',
   category: 'Giải trí',
   options: [
     {

@@ -6,7 +6,7 @@ const BaibacayCooldowns = new Map();
 
 module.exports = {
   name: 'baibacay',
-  description: 'Rút 3 cây bài và tính điểm cao nhất. Hạn chế sử dụng mỗi 5 giây - Rút gọn.',
+  description: 'Rút 3 cây bài và tính điểm cao nhất. Hạn chế sử dụng mỗi 5 giây.',
   category: 'Kinh tế',
   options: [
     {

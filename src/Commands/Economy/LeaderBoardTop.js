@@ -18,9 +18,20 @@ module.exports = {
         .setColor('BLURPLE')
         .setTitle('Top 10 Người Giàu Nhất (Tổng Tài Sản)')
         .setDescription(`**Tổng tài sản:**\n`);
-      top10.forEach(profile => {
-        embed.addField(`${bot.users.cache.get(profile.UserID).username}`, `**${profile.Bank + profile.Wallet}** :coin:`);
-      });
+      
+      for (const profile of top10) {
+        let user;
+        try {
+          user = await bot.users.fetch(profile.UserID);
+        } catch (error) {
+          console.error('Lỗi tìm người dùng:', error);
+        }
+
+        const username = user ? user.username : `Không xác định (${profile.UserID})`;
+        const totalWealth = profile.Bank + profile.Wallet;
+        embed.addField(username, `**${totalWealth}** :coin:`);
+      }
+
       await interaction.reply({
         embeds: [embed]
       });

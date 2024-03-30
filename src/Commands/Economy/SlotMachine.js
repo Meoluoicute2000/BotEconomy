@@ -6,7 +6,7 @@ const slotmachineCooldowns = new Map();
 
 module.exports = {
   name: 'slotmachine',
-  description: 'Quay máy đánh bạc Slot Machine. Hạn chế sử dụng mỗi 5 giây - Rút gọn.',
+  description: 'Quay máy đánh bạc Slot Machine. Hạn chế sử dụng mỗi 5 giây.',
   category: 'Kinh tế',
   options: [
     {

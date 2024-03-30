@@ -6,7 +6,7 @@ const blackjackCooldowns = new Map();
 
 module.exports = {
   name: 'blackjack',
-  description: 'Chơi trò chơi Blackjack. Hạn chế sử dụng mỗi 10 giây - Rút gọn.',
+  description: 'Chơi trò chơi Blackjack. Hạn chế sử dụng mỗi 10 giây.',
   category: 'Kinh tế',
   options: [
     {

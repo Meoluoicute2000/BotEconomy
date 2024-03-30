@@ -16,11 +16,22 @@ module.exports = {
       const top10 = sortedProfiles.slice(0, 10);
       const embed = new MessageEmbed()
         .setColor('BLURPLE')
-        .setTitle('Top 10 Người Giàu Nhất')
+        .setTitle('Top 10 Người Giàu Nhất (Coin Hiện Có)')
         .setDescription(`**Trong ví:**\n`);
-      top10.forEach(profile => {
-        embed.addField(`${bot.users.cache.get(profile.UserID).username}`, `**${profile.Wallet}** :coin:`);
-      });
+
+      for (const profile of top10) {
+        let user;
+        try {
+          user = await bot.users.fetch(profile.UserID);
+        } catch (error) {
+          console.error('Lỗi tìm người dùng:', error);
+        }
+
+        const username = user ? user.username : `Không xác định (${profile.UserID})`;
+        const walletAmount = profile.Wallet;
+        embed.addField(username, `**${walletAmount}** :coin:`);
+      }
+
       await interaction.reply({
         embeds: [embed]
       });

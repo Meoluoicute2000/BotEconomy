@@ -6,7 +6,7 @@ const coinflipCooldowns = new Map();
 
 module.exports = {
   name: 'cf',
-  description: 'Bật đồng xu và đặt cược xem mặt nào sẽ xuất hiện. Hạn chế sử dụng mỗi 5 giây.',
+  description: 'Bật đồng xu và đặt cược xem mặt nào sẽ xuất hiện. Hạn chế sử dụng mỗi 5 giây - Rút gọn.',
   category: 'Kinh tế',
   options: [
     {

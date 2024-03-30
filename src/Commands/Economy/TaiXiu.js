@@ -6,7 +6,7 @@ const taixiuCooldowns = new Map();
 
 module.exports = {
   name: 'taixiu',
-  description: 'Chơi trò chơi Tài Xỉu với 3 con xúc xắc. Hạn chế sử dụng mỗi 30 giây - Rút gọn.',
+  description: 'Chơi trò chơi Tài Xỉu với 3 con xúc xắc. Hạn chế sử dụng mỗi 30 giây.',
   category: 'Kinh tế',
   options: [
     {
