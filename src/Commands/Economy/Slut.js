@@ -19,7 +19,6 @@ module.exports = {
   async run({ interaction, options, bot, guild }) {
     const targetUser = options.getUser('target') || guild.members.cache.random().user;
 
-    // Kiểm tra nếu là bot hoặc tự ăn cắp tiền của chính mình
     if (targetUser.bot) {
       return await interaction.reply({
         embeds: [
@@ -64,8 +63,8 @@ module.exports = {
       });
     }
 
-    const cooldownTime = 10 * 60 * 1000; // 10 phút
-    const unluckyCooldownTime = 5 * 60 * 1000; // 5 phút
+    const cooldownTime = 10 * 60 * 1000;
+    const unluckyCooldownTime = 5 * 60 * 1000;
 
     if (stealCooldowns.has(interaction.user.id) && Date.now() - stealCooldowns.get(interaction.user.id) < cooldownTime) {
       const timeLeft = Math.ceil((cooldownTime - (Date.now() - stealCooldowns.get(interaction.user.id))) / 1000);

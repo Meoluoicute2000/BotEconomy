@@ -5,7 +5,7 @@ const { createProfile } = require('../../Structures/Utils');
 const coinflipCooldowns = new Map();
 
 module.exports = {
-  name: 'cf',
+  name: 'coinflip',
   description: 'Bật đồng xu và đặt cược xem mặt nào sẽ xuất hiện. Hạn chế sử dụng mỗi 5 giây.',
   category: 'Kinh tế',
   options: [

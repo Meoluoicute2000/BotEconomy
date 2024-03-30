@@ -5,8 +5,8 @@ const { createProfile } = require('../../Structures/Utils');
 const chanleCooldowns = new Map();
 
 module.exports = {
-  name: 'cl',
-  description: 'Chơi trò chơi Chẵn Lẻ với 3 con xúc xắc. Hạn chế sử dụng mỗi 30 giây - Rút gọn.',
+  name: 'chanle',
+  description: 'Chơi trò chơi Chẵn Lẻ với 4 đồng xu 2 mặt. Hạn chế sử dụng mỗi 30 giây - Rút gọn.',
   category: 'Kinh tế',
   options: [
     {
@@ -56,17 +56,18 @@ module.exports = {
       });
     }
 
-    const cooldownDuration = 30 * 1000; // 30 giây
+    const cooldownDuration = 30 * 1000;
     chanleCooldowns.set(interaction.user.id, Date.now() + cooldownDuration);
 
-    const dice1 = rollDice();
-    const dice2 = rollDice();
-    const dice3 = rollDice();
+    const coin1 = flipCoin();
+    const coin2 = flipCoin();
+    const coin3 = flipCoin();
+    const coin4 = flipCoin();
 
-    const totalPoints = dice1 + dice2 + dice3;
+    const totalHeads = [coin1, coin2, coin3, coin4].filter(side => side === 'Heads').length;
 
     let evenOrOdd;
-    if (totalPoints % 2 === 0) {
+    if (totalHeads % 2 === 0) {
       evenOrOdd = 'Chẵn';
     } else {
       evenOrOdd = 'Lẻ';
@@ -93,7 +94,7 @@ module.exports = {
         embeds: [
           new MessageEmbed()
             .setColor('BLURPLE')
-            .setDescription('**Số dư của bạn không đủ để chơi `Chanle` :coin: :coin: :coin:\n \n Vui lòng sử dụng lệnh `Work` hay nhận tiền hàng ngày để chơi.**'),
+            .setDescription('**Số dư của bạn không đủ để chơi `Chanle` :coin: :coin: :coin: :coin:\n \n Vui lòng sử dụng lệnh `Work` hay nhận tiền hàng ngày để chơi.**'),
         ],
       });
     }
@@ -101,14 +102,14 @@ module.exports = {
     const embed = new MessageEmbed()
       .setColor('BLURPLE')
       .setTitle(`Trò chơi Chẵn Lẻ của **${interaction.user.username}**`)
-      .setDescription(`**🎲 Xúc xắc:** 🎲 ${dice1} | 🎲 ${dice2} | 🎲 ${dice3}\n**🎲Tổng Điểm:** ${totalPoints}\n \n**🏛 Kết Quả Chẵn Lẻ:** ${evenOrOdd}\n**🍒 Bạn Lựa Chọn:** ${interaction.options.getString('choice')}\n \n**💵 Tiền Cược:** ${bet} :coin:\n**💰 Số Tiền Thắng:** ${winnings} :coin:\n**💸 Số Tiền Thua:** ${losses} :coin:`);
+      .setDescription(`**💰 Kết quả:** ${coin1} | ${coin2} | ${coin3} | ${coin4}\n \n**🏛 Kết Quả Chẵn Lẻ:** ${evenOrOdd}\n**🍒 Bạn Lựa Chọn:** ${interaction.options.getString('choice')}\n \n**💵 Tiền Cược:** ${bet} :coin:\n**💰 Số Tiền Thắng:** ${winnings} :coin:\n**💸 Số Tiền Thua:** ${losses} :coin:`);
 
     interaction.reply({ embeds: [embed] });
   },
 };
 
-function rollDice() {
-  return Math.floor(Math.random() * 6) + 1;
+function flipCoin() {
+  return Math.random() < 0.5 ? 'Heads' : 'Tails';
 }
 
 async function updateWallet(userID, guildID, amount) {

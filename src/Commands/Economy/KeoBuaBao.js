@@ -5,7 +5,7 @@ const { createProfile } = require('../../Structures/Utils');
 const keobuabaoCooldowns = new Map();
 
 module.exports = {
-  name: 'kbb',
+  name: 'keobuabao',
   description: 'Chơi trò chơi kéo búa bao. Hạn chế sử dụng mỗi 5 giây - Rút gọn.',
   category: 'Giải trí',
   options: [
