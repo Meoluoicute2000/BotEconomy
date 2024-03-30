@@ -26,7 +26,7 @@ module.exports = class Bot extends Client {
     await connect("mongodb+srv://Che12345:Kidtomboy@che1234.qphfxge.mongodb.net/?retryWrites=true&w=majority");
 
     console.log('|  🔑 Đăng nhập vào Discord...');
-    await this.login(TOKEN);
+    await client.login(TOKEN);
 
     if (Config.guildOnly.enabled == true && Config.guildOnly.guildID != '') {
       const guild = this.guilds.cache.get(Config.guildOnly.guildID);
